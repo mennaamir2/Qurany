@@ -1,7 +1,7 @@
 import 'package:azkary/core/providers/favorite_provider.dart';
 import 'package:azkary/core/themes/color_app.dart';
 import 'package:azkary/core/themes/styles.dart';
-import 'package:azkary/screens/custom_container.dart';
+import 'package:azkary/features/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

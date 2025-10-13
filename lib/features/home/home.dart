@@ -1,9 +1,8 @@
-import 'package:azkary/screens/azkar/azkar.dart';
-import 'package:azkary/screens/favourite_.dart';
-
-import 'package:azkary/screens/hadith/hadith.dart';
-import 'package:azkary/screens/quran/quran.dart';
-import 'package:azkary/screens/sebha.dart';
+import 'package:azkary/features/azkar/azkar.dart';
+import 'package:azkary/features/favourite/favourite.dart';
+import 'package:azkary/features/hadith/hadith.dart';
+import 'package:azkary/features/quran/quran.dart';
+import 'package:azkary/features/sebha/sebha.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 
