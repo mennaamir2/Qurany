@@ -1,7 +1,7 @@
 import 'package:azkary/core/providers/hadith_provider.dart';
 import 'package:azkary/core/themes/color_app.dart';
 import 'package:azkary/core/themes/styles.dart';
-import 'package:azkary/screens/hadith/hadith_details.dart';
+import 'package:azkary/features/hadith/hadith_details.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,4 +1,4 @@
-import 'package:azkary/screens/azkar/azkar_details_screen.dart';
+import 'package:azkary/features/azkar/azkar_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/providers/azkar_provider.dart';

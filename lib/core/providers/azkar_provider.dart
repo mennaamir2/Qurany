@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/azkar_model.dart';
-import '../utils/json_loder.dart';
+import '../utils/json_loader.dart';
 
 
 class AzkarProvider with ChangeNotifier {

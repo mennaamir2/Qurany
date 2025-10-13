@@ -39,9 +39,8 @@ class CustomContainer extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: currentValue > 0
-              ? ColorApp.primaryColor
-              : Colors.brown.shade300,
+          color:
+              currentValue > 0 ? ColorApp.primaryColor : Colors.brown.shade300,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,7 +91,8 @@ class CustomContainer extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: onReset,
-                    child: const Icon(Icons.refresh, size: 22, color: Colors.white),
+                    child: const Icon(Icons.refresh,
+                        size: 22, color: Colors.white),
                   )
                 ],
               ),

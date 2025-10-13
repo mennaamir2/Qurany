@@ -1,6 +1,6 @@
 import 'package:azkary/core/models/hadith_model.dart';
 import 'package:flutter/material.dart';
-import '../utils/json_loder.dart';
+import '../utils/json_loader.dart';
 class HadithProvider with ChangeNotifier {
   List <Hadith>? hadith;
   bool _isLoading = false;

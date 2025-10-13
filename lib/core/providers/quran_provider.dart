@@ -1,6 +1,6 @@
 import 'package:azkary/core/models/quran_model.dart';
 import 'package:flutter/material.dart';
-import '../utils/json_loder.dart';
+import '../utils/json_loader.dart';
 
 
 class QuranProvider with ChangeNotifier {

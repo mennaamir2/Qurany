@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../core/themes/color_app.dart';
-import '../core/themes/styles.dart';
+import '../../core/themes/color_app.dart';
+import '../../core/themes/styles.dart';
 
 class Sebha extends StatefulWidget {
   const Sebha({super.key});

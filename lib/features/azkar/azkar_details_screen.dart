@@ -1,6 +1,6 @@
 import 'package:azkary/core/providers/favorite_provider.dart';
 import 'package:azkary/core/themes/color_app.dart';
-import 'package:azkary/screens/custom_container.dart';
+import 'package:azkary/core/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/models/azkar_model.dart';
@@ -81,24 +81,23 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
                         ),
                       ),
                       CustomContainer(
-                          index: index,
-                          itemCount: item.list![0].count,
-                          haveList: true,
-                          item: item,
-                          favorite: isFavorite,
-                          favoriteProvider: favoriteProvider,
+                        index: index,
+                        itemCount: item.list![0].count,
+                        haveList: true,
+                        item: item,
+                        favorite: isFavorite,
+                        favoriteProvider: favoriteProvider,
                         counterValue: counters[index],
                         onTap: () {
                           setState(() {
-                              if (counters[index][0] > 0) {
-                                counters[index][0]--;
-                              }
+                            if (counters[index][0] > 0) {
+                              counters[index][0]--;
+                            }
                           });
                         },
                         onReset: () {
                           setState(() {
-                              counters[index][0] = int.parse(item.list![0].count);
-
+                            counters[index][0] = int.parse(item.list![0].count);
                           });
                         },
                       )
@@ -127,29 +126,26 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
                         ),
                       ),
                       CustomContainer(
-                          itemCount: item.count!,
-                          index: index,
-                          haveList: false,
-                          item: item,
-                          favorite: isFavorite,
-                          favoriteProvider: favoriteProvider,
+                        itemCount: item.count!,
+                        index: index,
+                        haveList: false,
+                        item: item,
+                        favorite: isFavorite,
+                        favoriteProvider: favoriteProvider,
                         counterValue: counters[index],
                         onTap: () {
                           setState(() {
-
-                              if (counters[index] > 0) {
-                                counters[index]--;
-                              }
-
+                            if (counters[index] > 0) {
+                              counters[index]--;
+                            }
                           });
                         },
                         onReset: () {
                           setState(() {
-
-                              counters[index] = int.parse(item.count!);
-
+                            counters[index] = int.parse(item.count!);
                           });
-                        },)
+                        },
+                      )
                     ],
                   );
                 }
@@ -159,7 +155,8 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
         ),
       ),
     );
-  }}
+  }
+}
 
 //   Widget customContainer({
 //     required int index,
@@ -260,4 +257,3 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
 //     );
 //   }
 // }
-

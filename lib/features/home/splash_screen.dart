@@ -1,5 +1,5 @@
 import 'package:azkary/core/themes/color_app.dart';
-import 'package:azkary/features/home.dart';
+import 'package:azkary/features/home/home.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

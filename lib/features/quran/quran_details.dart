@@ -20,12 +20,16 @@ class QuranDetails extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               Text(
-                quran.ayahs.first.numberInSurah==0?quran.ayahs.first.text:
-                "${quran.ayahs.first.text} ﴿${quran.ayahs.first.numberInSurah}﴾",
+                quran.ayahs.first.numberInSurah == 0
+                    ? quran.ayahs.first.text
+                    : "${quran.ayahs.first.text} ﴿${quran.ayahs.first.numberInSurah}﴾",
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 26, height: 2),),
+                style: const TextStyle(fontSize: 26, height: 2),
+              ),
               Text(
                 quran.ayahs.skip(1).map((ayah) {
                   return "${ayah.text} ﴿${ayah.numberInSurah}﴾";
@@ -38,7 +42,5 @@ class QuranDetails extends StatelessWidget {
         ),
       ),
     );
-
-
   }
 }

@@ -1,7 +1,7 @@
 import 'package:azkary/core/providers/quran_provider.dart';
 import 'package:azkary/core/themes/color_app.dart';
 import 'package:azkary/core/themes/styles.dart';
-import 'package:azkary/screens/quran/quran_details.dart';
+import 'package:azkary/features/quran/quran_details.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
