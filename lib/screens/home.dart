@@ -1,5 +1,6 @@
 import 'package:azkary/screens/azkar/azkar.dart';
-import 'package:azkary/screens/favourite.dart';
+import 'package:azkary/screens/favourite_.dart';
+
 import 'package:azkary/screens/hadith/hadith.dart';
 import 'package:azkary/screens/quran/quran.dart';
 import 'package:azkary/screens/sebha.dart';
@@ -21,6 +22,11 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: PageView(
         controller: controller,
+        onPageChanged: (value) {
+          setState(() {
+            index = value;
+          });
+        },
         children: const [Quran(), Hadith(), Azkarr(), Sebha(), Favourite()],
       ),
       bottomNavigationBar: BottomNavigationBar(

@@ -1,3 +1,4 @@
+import 'package:azkary/core/themes/color_app.dart';
 import 'package:azkary/screens/home.dart';
 import 'package:flutter/material.dart';
 import '../core/constants/asset_images.dart';
@@ -13,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(
-      const Duration(seconds: 6),
+      const Duration(seconds: 5),
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -28,6 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorApp.secondaryColor,
       body: Center(
         child: Image.asset(
           AssetImages.logo,

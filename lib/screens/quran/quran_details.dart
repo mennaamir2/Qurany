@@ -8,31 +8,37 @@ class QuranDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(quran.name,
-              style: const TextStyle(color: ColorApp.secondaryColor)),
-          backgroundColor: ColorApp.primaryColor,
-          iconTheme: const IconThemeData(color: Colors.white),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              final ayah = quran.ayahs[index];
-              if (ayah.text.contains("﻿")) {
-                return const SizedBox.shrink();
-              }
-              return Card(
-                  child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "${ayah.text}  (${ayah.numberInSurah})",
-                  style: const TextStyle(fontSize: 22),
-                ),
-              ));
-            },
-            itemCount: quran.ayahs.length,
+      appBar: AppBar(
+        title: Text(quran.name,
+            style: const TextStyle(color: ColorApp.secondaryColor)),
+        backgroundColor: ColorApp.primaryColor,
+        iconTheme: const IconThemeData(color: Colors.white),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 10,),
+              Text(
+                quran.ayahs.first.numberInSurah==0?quran.ayahs.first.text:
+                "${quran.ayahs.first.text} ﴿${quran.ayahs.first.numberInSurah}﴾",
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 26, height: 2),),
+              Text(
+                quran.ayahs.skip(1).map((ayah) {
+                  return "${ayah.text} ﴿${ayah.numberInSurah}﴾";
+                }).join(" "),
+                textAlign: TextAlign.justify,
+                style: const TextStyle(fontSize: 24, height: 2),
+              ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
+
+
   }
 }

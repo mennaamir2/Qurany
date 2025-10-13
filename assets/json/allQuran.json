@@ -14,15 +14,6 @@
                 "sajda": false
             },
             {
-                "numberInQuran": 1,
-                "numberInSurah": 1,
-                "audio": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3",
-                "text": "﻿",
-                "juz": 1,
-                "page": 1,
-                "sajda": false
-            },
-            {
                 "numberInQuran": 2,
                 "numberInSurah": 2,
                 "audio": "https://cdn.islamic.network/quran/audio/128/ar.alafasy/2.mp3",

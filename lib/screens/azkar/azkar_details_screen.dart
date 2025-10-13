@@ -1,5 +1,6 @@
 import 'package:azkary/core/providers/favorite_provider.dart';
 import 'package:azkary/core/themes/color_app.dart';
+import 'package:azkary/screens/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/models/azkar_model.dart';
@@ -79,13 +80,28 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
                           ],
                         ),
                       ),
-                      customContainer(
+                      CustomContainer(
                           index: index,
                           itemCount: item.list![0].count,
                           haveList: true,
                           item: item,
                           favorite: isFavorite,
-                          favoriteProvider: favoriteProvider)
+                          favoriteProvider: favoriteProvider,
+                        counterValue: counters[index],
+                        onTap: () {
+                          setState(() {
+                              if (counters[index][0] > 0) {
+                                counters[index][0]--;
+                              }
+                          });
+                        },
+                        onReset: () {
+                          setState(() {
+                              counters[index][0] = int.parse(item.list![0].count);
+
+                          });
+                        },
+                      )
                     ],
                   );
                 } else {
@@ -110,13 +126,30 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
                           ],
                         ),
                       ),
-                      customContainer(
+                      CustomContainer(
                           itemCount: item.count!,
                           index: index,
                           haveList: false,
                           item: item,
                           favorite: isFavorite,
-                          favoriteProvider: favoriteProvider)
+                          favoriteProvider: favoriteProvider,
+                        counterValue: counters[index],
+                        onTap: () {
+                          setState(() {
+
+                              if (counters[index] > 0) {
+                                counters[index]--;
+                              }
+
+                          });
+                        },
+                        onReset: () {
+                          setState(() {
+
+                              counters[index] = int.parse(item.count!);
+
+                          });
+                        },)
                     ],
                   );
                 }
@@ -126,104 +159,105 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
         ),
       ),
     );
-  }
+  }}
 
-  Widget customContainer({
-    required int index,
-    required String itemCount,
-    required bool haveList,
-    required AzkarList item,
-    required bool favorite,
-    required FavoriteProvider favoriteProvider,
-  }) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          if (haveList) {
-            // Handle nested counters (list)
-            if (counters[index][0] > 0) {
-              counters[index][0]--;
-            }
-          } else {
-            // Handle single counter
-            if (counters[index] > 0) {
-              counters[index]--;
-            }
-          }
-        });
-      },
-      child: Container(
-        height: 100,
-        width: 350,
-        margin: const EdgeInsets.only(top: 10, bottom: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: (haveList ? counters[index][0] : counters[index]) > 0
-              ? ColorApp.primaryColor
-              : Colors.brown.shade300,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 10, top: 4, bottom: 4),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '${index + 1}',
-                    style: const TextStyle(fontSize: 17, color: Colors.white),
-                  ),
-                  GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (favorite) {
-                            favoriteProvider.removeFromFavorites(item);
-                          } else {
-                            favoriteProvider.addToFavorites(item);
-                          }
-                        });
-                      },
-                      child: Icon(
-                        favorite ? Icons.favorite : Icons.favorite_border,
-                        size: 22,
-                        color: Colors.white,
-                      ))
-                ],
-              ),
-            ),
-            Text(
-              '${haveList ? counters[index][0] : counters[index]}',
-              style: const TextStyle(fontSize: 26, color: Colors.white),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, top: 4, bottom: 4),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    itemCount,
-                    style: const TextStyle(fontSize: 17, color: Colors.white),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        if (haveList) {
-                          counters[index][0] = int.parse(itemCount);
-                        } else {
-                          counters[index] = int.parse(itemCount);
-                        }
-                      });
-                    },
-                    child: const Icon(Icons.refresh,
-                        size: 22, color: Colors.white),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   Widget customContainer({
+//     required int index,
+//     required String itemCount,
+//     required bool haveList,
+//     required AzkarList item,
+//     required bool favorite,
+//     required FavoriteProvider favoriteProvider,
+//   }) {
+//     return GestureDetector(
+//       onTap: () {
+//         setState(() {
+//           if (haveList) {
+//             // Handle nested counters (list)
+//             if (counters[index][0] > 0) {
+//               counters[index][0]--;
+//             }
+//           } else {
+//             // Handle single counter
+//             if (counters[index] > 0) {
+//               counters[index]--;
+//             }
+//           }
+//         });
+//       },
+//       child: Container(
+//         height: 100,
+//         width: 350,
+//         margin: const EdgeInsets.only(top: 10, bottom: 10),
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(15),
+//           color: (haveList ? counters[index][0] : counters[index]) > 0
+//               ? ColorApp.primaryColor
+//               : Colors.brown.shade300,
+//         ),
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//           children: [
+//             Padding(
+//               padding: const EdgeInsets.only(right: 10, top: 4, bottom: 4),
+//               child: Column(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   Text(
+//                     '${index + 1}',
+//                     style: const TextStyle(fontSize: 17, color: Colors.white),
+//                   ),
+//                   GestureDetector(
+//                       onTap: () {
+//                         setState(() {
+//                           if (favorite) {
+//                             favoriteProvider.removeFromFavorites(item);
+//                           } else {
+//                             favoriteProvider.addToFavorites(item);
+//                           }
+//                         });
+//                       },
+//                       child: Icon(
+//                         favorite ? Icons.favorite : Icons.favorite_border,
+//                         size: 22,
+//                         color: Colors.white,
+//                       ))
+//                 ],
+//               ),
+//             ),
+//             Text(
+//               '${haveList ? counters[index][0] : counters[index]}',
+//               style: const TextStyle(fontSize: 26, color: Colors.white),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.only(left: 10, top: 4, bottom: 4),
+//               child: Column(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   Text(
+//                     itemCount,
+//                     style: const TextStyle(fontSize: 17, color: Colors.white),
+//                   ),
+//                   GestureDetector(
+//                     onTap: () {
+//                       setState(() {
+//                         if (haveList) {
+//                           counters[index][0] = int.parse(itemCount);
+//                         } else {
+//                           counters[index] = int.parse(itemCount);
+//                         }
+//                       });
+//                     },
+//                     child: const Icon(Icons.refresh,
+//                         size: 22, color: Colors.white),
+//                   )
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
