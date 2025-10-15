@@ -1,4 +1,4 @@
-# azkary
+# Qurany
 
 A new Flutter project.
 
