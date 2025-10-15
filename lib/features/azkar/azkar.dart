@@ -30,8 +30,8 @@ class Azkarr extends StatelessWidget {
                     title: Center(
                         child: Text(
                       zekr.title,
-                      style: const TextStyle(fontSize: 22),
-                    )),
+                      style: const TextStyle(fontSize: 24 ),
+                    )),minTileHeight: 60,
                     onTap: () {
                       Navigator.push(
                         context,
