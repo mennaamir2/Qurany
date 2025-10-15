@@ -75,30 +75,6 @@ class _QuranState extends State<Quran> {
                   ),
                 ),
               ),
-              // Expanded(
-              //   child: ListView.builder(
-              //       itemCount: quranProvider.quran!.length,
-              //       itemBuilder: (context, index) {
-              //         final quran = quranProvider.quran![index];
-              //         return Card(
-              //           child: ListTile(
-              //             title: Text(
-              //               '(${quran.number})  ${quran.name}',
-              //               style: const TextStyle(fontSize: 22),
-              //             ),
-              //             onTap: () {
-              //               Navigator.push(
-              //                 context,
-              //                 MaterialPageRoute(
-              //                   builder: (context) => QuranDetails(quran: quran),
-              //                 ),
-              //               );
-              //             },
-              //           ),
-              //         );
-              //       },
-              //     ),
-              // ),
               Expanded(
                 child: ListView.builder(
                   itemCount: filteredQuran.length,
