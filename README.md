@@ -1,8 +1,18 @@
 # 📖 Qurany App
 
-**Qurany** is an Islamic Flutter mobile application designed to help users stay spiritually connected through a collection of Islamic features — including **Quran**, **Azkar (remembrances)**, **Hadiths**, **Tasbeeh (prayer beads)**, and a **Favorites section** for saving personal Azkar.
+**Qurany** is an Islamic Flutter mobile application designed to help users stay spiritually connected through a collection of Islamic features — including **Quran**, **Azkar**, **Hadiths**, **Tasbeeh**, and a **Favorites section** for saving personal Azkar.
 
 ---
+
+## 📸 Screenshots
+
+| Quran                                  | Hadiths                                    | Azkar | Tasbeeh | Favorites |
+|----------------------------------------|--------------------------------------------|--------|-----------|-----------|
+| ![Quran](assets/screenshots/quran.png) | ![Hadiths](assets/screenshots/hadiths.png) | ![Azkar](assets/screenshots/azkar.png) | ![Tasbeeh](assets/screenshots/tasbeeh.png) | ![Favorites](assets/screenshots/favorites.png) |
+
+
+---
+
 
 ## 🌙 Features
 
@@ -33,16 +43,6 @@
 - **Provider** for state management
 - **SharedPreferences** for local data persistence
 - **MVVM Architecture Pattern**
-
----
-
-## 📸 Screenshots
-
-| Quran                                  | Hadiths                                    | Azkar | Tasbeeh | Favorites |
-|----------------------------------------|--------------------------------------------|--------|-----------|-----------|
-| ![Quran](assets/screenshots/quran.png) | ![Hadiths](assets/screenshots/hadiths.png) | ![Azkar](assets/screenshots/azkar.png) | ![Tasbeeh](assets/screenshots/tasbeeh.png) | ![Favorites](assets/screenshots/favorites.png) |
-
-
 
 
 
