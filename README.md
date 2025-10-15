@@ -1,16 +1,48 @@
-# Qurany
+# 📖 Qurany App
 
-A new Flutter project.
+**Qurany** is an Islamic Flutter mobile application designed to help users stay spiritually connected through a collection of Islamic features — including **Quran**, **Azkar (remembrances)**, **Hadiths**, **Tasbeeh (prayer beads)**, and a **Favorites section** for saving personal Azkar.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🌙 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🕋 **Quran Section**  
+  Browse and read all Quran surahs easily. Includes search functionality to find surahs by name.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 🤲 **Azkar (Remembrances)**  
+  Morning, evening, and daily Azkar with counting support for each zikr.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 📚 **Hadiths**  
+  Access a collection of authentic Hadiths.
+
+- 🔢 **Tasbeeh Counter**  
+  Simple and interactive digital Tasbeeh for counting dhikr.
+
+- ❤️ **Favorites**  
+  Save your favorite Azkar and access them anytime — stored locally using `SharedPreferences`.
+
+- 🌐 **Beautiful UI**  
+  Simple, elegant, and easy-to-use design following the MVVM (Model-View-ViewModel) architecture.
+
+---
+
+
+## ⚙️ Technologies Used
+
+- **Flutter** (Dart)
+- **Provider** for state management
+- **SharedPreferences** for local data persistence
+- **MVVM Architecture Pattern**
+
+---
+
+## 📸 Screenshots
+
+| Quran                                  | Hadiths                                    | Azkar | Tasbeeh | Favorites |
+|----------------------------------------|--------------------------------------------|--------|-----------|-----------|
+| ![Quran](assets/screenshots/quran.png) | ![Hadiths](assets/screenshots/hadiths.png) | ![Azkar](assets/screenshots/azkar.png) | ![Tasbeeh](assets/screenshots/tasbeeh.png) | ![Favorites](assets/screenshots/favorites.png) |
+
+
+
+
+

@@ -15,38 +15,31 @@ class Quran extends StatefulWidget {
 class _QuranState extends State<Quran> {
   final TextEditingController _searchController = TextEditingController();
   final FocusNode _searchFocusNode = FocusNode();
-  List<dynamic> filteredQuran = [];
-  @override
-  void initState() {
-    super.initState();
-    final quranProvider = Provider.of<QuranProvider>(context, listen: false);
+  String query = '';
 
-    // لما البيانات تتحمل، خزنها في filteredQuran
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        filteredQuran = quranProvider.quran ?? [];
-      });
+  void _filterQuran(String value) {
+    setState(() {
+      query = value;
     });
   }
+
   @override
   void dispose() {
     _searchController.dispose();
-    _searchFocusNode.dispose(); // 👈 نغلقه عند التخلص
+    _searchFocusNode.dispose();
     super.dispose();
   }
-  void _filterQuran(String query) {
-    final quranProvider = Provider.of<QuranProvider>(context, listen: false);
-    final results = quranProvider.quran!.where((surah) {
-      return surah.name.toLowerCase().contains(query.toLowerCase());
-    }).toList();
 
-    setState(() {
-      filteredQuran = results;
-    });
-  }
   @override
   Widget build(BuildContext context) {
     final quranProvider = Provider.of<QuranProvider>(context);
+    final quranList = quranProvider.quran ?? [];
+
+    // فلترة السور حسب البحث
+    final filteredQuran = quranList.where((surah) {
+      return surah.name.toLowerCase().contains(query.toLowerCase());
+    }).toList();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorApp.primaryColor,
@@ -59,53 +52,53 @@ class _QuranState extends State<Quran> {
       body: quranProvider.isLoading
           ? const Center(child: CircularProgressIndicator())
           : Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: TextField(
-                  controller: _searchController,
-                  focusNode: _searchFocusNode,
-                  onChanged: _filterQuran,
-                  decoration: InputDecoration(
-                    hintText: 'ابحث عن السورة ...',
-                    prefixIcon: const Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(22),
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: TextField(
+                    controller: _searchController,
+                    focusNode: _searchFocusNode,
+                    onChanged: _filterQuran,
+                    decoration: InputDecoration(
+                      hintText: 'ابحث عن السورة ...',
+                      prefixIcon: const Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(22),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: filteredQuran.length,
-                  itemBuilder: (context, index) {
-                    final quran = filteredQuran[index];
-                    return Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: ListTile(
-                        title: Text(
-                          '(${quran.number})  ${quran.name}',
-                          style: const TextStyle(fontSize: 22),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: filteredQuran.length,
+                    itemBuilder: (context, index) {
+                      final quran = filteredQuran[index];
+                      return Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                        onTap: () {
-                          _searchFocusNode.unfocus();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => QuranDetails(quran: quran),
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  },
+                        child: ListTile(
+                          title: Text(
+                            '(${quran.number})  ${quran.name}',
+                            style: const TextStyle(fontSize: 22),
+                          ),
+                          onTap: () {
+                            _searchFocusNode.unfocus();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    QuranDetails(quran: quran),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-
-            ],
-          ),
+              ],
+            ),
     );
   }
 }
